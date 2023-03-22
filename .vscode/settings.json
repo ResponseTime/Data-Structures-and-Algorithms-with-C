@@ -2,5 +2,6 @@
   "files.associations": {
     "stdlib.h": "c",
     "DSA18.C": "cpp"
-  }
+  },
+  "C_Cpp.errorSquiggles": "disabled"
 }
