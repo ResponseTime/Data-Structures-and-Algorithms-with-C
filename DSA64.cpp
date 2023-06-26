@@ -84,7 +84,6 @@ int main(int argc, char **argv)
     g.addEdge(3, 9, 1);
     g.addEdge(9, 8, 1);
     g.addEdge(8, 3, 1);
-
     g.printGraph();
     g.isCyclic();
     cout << g.cycleCount << endl;
