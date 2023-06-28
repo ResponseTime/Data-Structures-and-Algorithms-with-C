@@ -48,7 +48,7 @@ public:
     }
     void dfs_print()
     {
-        for (int i = 0; i < adj.size(); i++)
+        for (int i = 1; i < adj.size(); i++)
         {
             if (visited[i] == 0)
             {
@@ -71,13 +71,14 @@ int main(int argc, char **argv)
     graph<int> g;
     g.addEdge(1, 2, 1);
     g.addEdge(1, 3, 1);
-    g.addEdge(2, 4, 1);
-    g.addEdge(3, 4, 1);
     g.addEdge(4, 5, 1);
-    g.addEdge(4, 6, 1);
     g.addEdge(5, 6, 1);
+    g.addEdge(6, 7, 1);
+    g.addEdge(4, 8, 1);
+    // g.addEdge(5, 6, 1);
     g.printGraph();
-    g.dfs(1);
+    // g.dfs(1);
+    g.dfs_print();
     cout << " " << endl;
     g.topological_sort();
     return 0;
