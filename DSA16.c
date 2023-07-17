@@ -111,12 +111,22 @@ char *infix_to_postfix(char *inf, int len)
     post[j] = '\0';
     return post;
 }
+char *infix_to_prefix(char *inf, int len)
+{
+    char *tr = infix_to_postfix(strrev(inf), len);
+    char *res = strrev(tr);
+    return res;
+}
 int main(int argc, char **argv)
 {
-    char *inf = "X-Y/Z-K*D";
+    char inf[] = "X-Y/Z-K*D";
     printf("%s", infix_to_postfix(inf, strlen(inf)));
+    printf("\n");
+    printf("%s", infix_to_prefix(inf, strlen(inf)));
     return 0;
 }
 
 // X - Y / Z - K *D infix to postfix
 // XYZ/-KD*-
+// X - Y / Z - K *D infix to prefix
+// -X-/YZ*KD
