@@ -91,7 +91,7 @@ int main(int argc, char **argv)
     g.addEdge(4, 5, 0);
     g.addEdge(4, 6, 0);
     g.addEdge(6, 5, 0);
-    g.printGraph();
+    // g.printGraph();
     g.isCyclic();
     return 0;
 }

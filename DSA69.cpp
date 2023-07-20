@@ -26,14 +26,18 @@ public:
 
     void printGraph()
     {
-        for (auto i : adj)
+        // for (auto i : adj)
+        // {
+        //     cout << i.first << "-> ";
+        //     for (auto j : i.second)
+        //     {
+        //         cout << j << ",";
+        //     }
+        //     cout << endl;
+        // }
+        for (auto i : parent)
         {
-            cout << i.first << "-> ";
-            for (auto j : i.second)
-            {
-                cout << j << ",";
-            }
-            cout << endl;
+            cout << i.first << "-> " << i.second << endl;
         }
     }
     void shortestPath(int strt, int end)
@@ -78,6 +82,7 @@ int main(int argc, char **argv)
     g.addEdge(2, 3, 0);
     g.addEdge(3, 5, 0);
     g.addEdge(5, 1, 0);
-    g.shortestPath(1, 5);
+    g.shortestPath(3, 1);
+    g.printGraph();
     return 0;
 }
