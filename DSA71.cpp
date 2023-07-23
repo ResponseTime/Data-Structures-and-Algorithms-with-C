@@ -35,8 +35,8 @@ public:
     }
     void dijkstra(int src)
     {
-        vector<int> dist(adj.size());
-        for (int i = 0; i < adj.size(); i++)
+        vector<int> dist(adj.size() + 1);
+        for (int i = 0; i < adj.size() + 1; i++)
         {
             dist[i] = INT_MAX;
         }
@@ -51,15 +51,19 @@ public:
             st.erase(st.begin());
             for (auto i : adj[topN])
             {
-                if (topD + i.second < dist[i.first])
+                if (dist[topN] != INT_MAX)
                 {
-                    auto record = st.find(make_pair(dist[i.first], i.first));
-                    if (record != st.end())
+
+                    if (topD + i.second < dist[i.first])
                     {
-                        st.erase(record);
+                        auto record = st.find(make_pair(dist[i.first], i.first));
+                        if (record != st.end())
+                        {
+                            st.erase(record);
+                        }
+                        dist[i.first] = topD + i.second;
+                        st.insert(make_pair(dist[i.first], i.first));
                     }
-                    dist[i.first] = topD + i.second;
-                    st.insert(make_pair(dist[i.first], i.first));
                 }
             }
         }
@@ -80,6 +84,15 @@ int main(int argc, char **argv)
     g.addEdge(4, 3, 7);
     g.addEdge(0, 3, 2);
     g.addEdge(0, 1, 7);
+    // g.addEdge(0, 1, 5);
+    // g.addEdge(0, 2, 3);
+    // g.addEdge(1, 2, 2);
+    // g.addEdge(1, 3, 6);
+    // g.addEdge(2, 3, 7);
+    // g.addEdge(2, 4, 4);
+    // g.addEdge(2, 5, 2);
+    // g.addEdge(3, 4, -1);
+    // g.addEdge(4, 5, -2);
     g.dijkstra(0);
     return 0;
 }

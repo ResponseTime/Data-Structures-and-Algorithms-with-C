@@ -99,7 +99,7 @@ int main(int argc, char **argv)
     g.addEdge(2, 5, 2);
     g.addEdge(3, 4, -1);
     g.addEdge(4, 5, -2);
-    g.printGraph();
-    g.shortestPath(1);
+    // g.printGraph();
+    g.shortestPath(0);
     return 0;
 }
